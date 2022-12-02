@@ -1,0 +1,45 @@
+PODS:
+  - Flutter (1.0.0)
+  - fluttertoast (0.0.2):
+    - Flutter
+    - Toast
+  - geolocator_apple (1.2.0):
+    - Flutter
+  - Toast (4.0.0)
+  - yandex_mapkit (0.0.1):
+    - Flutter
+    - YandexMapsMobile (= 4.2.2-full)
+  - YandexMapsMobile (4.2.2-full)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
+  - yandex_mapkit (from `.symlinks/plugins/yandex_mapkit/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Toast
+    - YandexMapsMobile
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
+  geolocator_apple:
+    :path: ".symlinks/plugins/geolocator_apple/ios"
+  yandex_mapkit:
+    :path: ".symlinks/plugins/yandex_mapkit/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  fluttertoast: 74526702fea2c060ea55dde75895b7e1bde1c86b
+  geolocator_apple: cc556e6844d508c95df1e87e3ea6fa4e58c50401
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  yandex_mapkit: 3431f8997d36bc0df753407ef282565c09163766
+  YandexMapsMobile: 1fd5f86bc368ad6ba528b199f9477e4a26796567
+
+PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
+
+COCOAPODS: 1.11.3
