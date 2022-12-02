@@ -26,10 +26,8 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _determinePosition().then((value) {
       final boundingBox = BoundingBox(
-        northEast: Point(
-            latitude: myPosition.latitude, longitude: myPosition.longitude),
-        southWest: Point(
-            latitude: myPosition.latitude, longitude: myPosition.longitude),
+        northEast: Point(latitude: myPosition.latitude, longitude: myPosition.longitude),
+        southWest: Point(latitude: myPosition.latitude, longitude: myPosition.longitude),
       );
       _controller.moveCamera(CameraUpdate.newTiltAzimuthBounds(boundingBox));
       _controller.moveCamera(CameraUpdate.zoomTo(11));
@@ -40,7 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onMapCreated(YandexMapController controller) {
     _completer.complete(controller);
     _controller = controller;
-    setState(() {});
   }
 
   Future<Position?> _determinePosition() async {
@@ -65,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
       Fluttertoast.showToast(msg: 'Permission is dined forever');
     }
     myPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    return myPosition;
   }
 
   void _findLocation() {
@@ -100,8 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _tappedLocation(Point point) {
-    stopPlaceMarks = PlacemarkMapObject(
-      mapId: const MapObjectId("stop_point"),
+    mapObjects.clear();
+    mapObjects.add(startPlaceMarks);
+    print("OnTap");
+    setState(() {});
+    mapObjects.add(PlacemarkMapObject(
+      mapId:  MapObjectId("stop_point${mapObjects.length+1}"),
       point: point,
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
@@ -109,9 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
           image: BitmapDescriptor.fromAssetImage("assets/images/img_2.png"),
         ),
       ),
-    );
-    setState(() {});
-    mapObjects.add(stopPlaceMarks);
+    ));
+    print(mapObjects);
     progress = true;
     setState(() {});
   }
